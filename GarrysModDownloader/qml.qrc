@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>fonts/Roboto-Light.ttf</file>
+        <file>fonts/Roboto-Medium.ttf</file>
+        <file>components/FlatWindow.qml</file>
+        <file>components/Box.qml</file>
+        <file>components/Wait.qml</file>
+    </qresource>
+</RCC>
