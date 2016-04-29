@@ -7,7 +7,9 @@ Install::Install(QObject *parent) : QObject(parent){
 bool Install::installContent(QString typ, QString name){
     isUnziping = true;
     QString extDir;
-    QString sourceDir = name; sourceDir += ".zip";
+    QString sourceDir = "Packages/";
+    sourceDir += name;
+    sourceDir += ".zip";
     if(typ == "addons"){
         extDir = "C:/Program Files (x86)/Steam/steamapps/common/GarrysMod/garrysmod/addons";
     }
@@ -39,8 +41,8 @@ bool Install::installMaps(){
     isUnziping = true;
     QString extDir;
     extDir = "C:/Program Files (x86)/Steam/steamapps/common/GarrysMod/garrysmod/maps";
-    JlCompress::extractDir("v2d.zip", extDir);
-    JlCompress::extractDir("v33x.zip", extDir);
+    JlCompress::extractDir("Packages/v2d.zip", extDir);
+    JlCompress::extractDir("Packages/v33x.zip", extDir);
     isUnziping = false;
     return true;
 }

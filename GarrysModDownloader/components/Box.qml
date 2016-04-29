@@ -7,7 +7,7 @@ Item {
     width: parent.width-8
     signal clicked
     anchors.horizontalCenter: parent.horizontalCenter
-    height: 126
+    height: 140
     property string title: "Counter Strike: Source"
     property string opis: "Will allow you to play on 90% Garry's Mod servers"
     property string buttonText
@@ -55,7 +55,6 @@ Item {
                     item1.clicked()
                 }
             }
-
             id: button
             width: 73
             height: 27
@@ -67,13 +66,7 @@ Item {
             style: ButtonStyle {
                 background: Rectangle {
                     radius: 1
-                    Component.onCompleted: {
-                        if(!buttonEnabled){
-                            color = "#2c3e50"
-                        }
-                    }
                     color: control.pressed ? "#2c3e50" : "#34495e"
-
                     Text {
                         width: parent.width
                         height: parent.height

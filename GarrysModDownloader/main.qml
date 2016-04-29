@@ -11,26 +11,26 @@ FlatWindow {
         id: xmodel
         ListElement {
             _title: "Counter Strike Source"
-            _opis: "bla bla bla bla bla bla"
+            _opis: "Those are textures, models and sounds from Counter Strike Source game, it will allow you to play on a lot of servers."
             _typ: "addons"
             _name: "CSS"
         }
         ListElement {
             _title: "Half Life Epizode 2"
-            _opis: "adsadsaadsa asdadsdass asddsds "
+            _opis: "Those are Textures, models, sounds and scripts from Half Life 2 Ep2, you need it to play on CityRP."
             _typ: "addons"
             _name: "HL2EP2"
         }
         ListElement {
             _title: "CityRP Content"
-            _opis: "Will allow you to play on Fearless rp"
+            _opis: "Those are models, textures, sounds which you want to join quickly on CityRP, there are also v2d and v33x maps."
             _typ: "addons"
             _name: "fearless_content"
         }
     }
     ListView {
         width: parent.width;
-        height: 126*xmodel.count
+        height: 140*xmodel.count
 
         anchors.top: parent.top
         anchors.topMargin: 67
@@ -49,11 +49,14 @@ FlatWindow {
                 }
             }
             onClicked: {
+                wait.visible = true;
                 console.log("Typ: ", _typ);
                 console.log("Name: ",_name);
-                wait.visible = true;
+                timerx.running = true;
+                buttonText = "Installing"
+            }
+            function install(){
                 Install.installContent(_typ, _name);
-                wait.visible = false;
                 if(Install.checkIfInstalled(_typ, _name) == true){
                     buttonText = "Installed";
                     buttonEnabled = false;
@@ -62,9 +65,18 @@ FlatWindow {
                     buttonText = "Install"
                     buttonEnabled = true;
                 }
+                wait.visible = false;
+            }
+            Timer {
+                id: timerx
+                interval: 500;
+                onTriggered: {
+                    parent.install()
+                }
             }
         }
     }
+
     Wait {
         id: wait
         visible: false
